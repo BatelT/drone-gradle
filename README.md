@@ -7,11 +7,11 @@ Artifactory Pro / Artifactory SAAS
 
 #### Step 1:
 In the Gradle project, configure the following Artifactory credentials, under CI/CD Settings > Secret variables: ARTIFACTORY_URL, ARTIFACTORY_USER, ARTIFACTORY_PASS, and GRADLE_REPO_KEY.
-![screenshot](img/Screen_Shot1.png)
+![screenshot](img/.png)
 
 #### Step 2:
 Place a .gitlab-ci.yml file in the root of your project, as used in this sample project.
 
 #### Step 3:
 View the published artifacts and build information in Artifactory.
-![screenshot](img/Screen_Shot2.png)
+![screenshot](img/.png)
