@@ -1,6 +1,6 @@
 pipeline:
   build:
-    image: amd64/gradle
+    image: frekele/gradle
     secrets: [ artifactory_password, ARTIFACTORY_USER, ARTIFACTORY_URL, GRADLE_REPO_KEY ]
     commands:
       - curl -fL https://getcli.jfrog.io | sh
