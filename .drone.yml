@@ -7,7 +7,7 @@ pipeline:
       - ./jfrog rt config --url=$ARTIFACTORY_URL --user=$ARTIFACTORY_USER --password=$ARTIFACTORY_PASSWORD
       - ./jfrog rt c show
       - sed -i 's,GRADLE_REPO_KEY,'"$GRADLE_REPO_KEY"',g' configuration.yml
-      - ./jfrog rt gradle "clean artifactoryPublish -b build.gradle" configuration.yml --build-name=Drone-Gradle-artifactory --build-number=dronejob$CI_JOB_ID
-      - ./jfrog rt bce Drone-Gradle-artifactory dronejob$CI_JOB_ID
-      - ./jfrog rt bp Drone-Gradle-artifactory dronejob$CI_JOB_ID
+      - ./jfrog rt gradle "clean artifactoryPublish -b build.gradle" configuration.yml --build-name=Drone-Gradle-artifactory --build-number=$DRONE_BUILD_NUMBER
+      - ./jfrog rt bce Drone-Gradle-artifactory $DRONE_BUILD_NUMBER
+      - ./jfrog rt bp Drone-Gradle-artifactory $DRONE_BUILD_NUMBER
 
