@@ -6,7 +6,7 @@ pipeline:
       - curl -fL https://getcli.jfrog.io | sh
       - ./jfrog rt config --url=$ARTIFACTORY_URL --user=$ARTIFACTORY_USER --password=$ARTIFACTORY_PASSWORD
       - ./jfrog rt c show
-      - sed -i 's,GRADLE_REPO_KEY,'"$GRADLE_REPO_KEY"',g' configuration.yaml
-      - ./jfrog rt gradle "clean artifactoryPublish -b build.gradle" configuration.yaml --build-name=Drone-Gradle-artifactory --build-number=1.0.0
+      - sed -i 's,GRADLE_REPO_KEY,'"$GRADLE_REPO_KEY"',g' configuration.yml
+      - ./jfrog rt gradle "clean artifactoryPublish -b build.gradle" configuration.yml --build-name=Drone-Gradle-artifactory --build-number=1.0.0
       - ./jfrog rt bce Drone-Gradle-artifactory 1.0.0
       - ./jfrog rt bp Drone-Gradle-artifactory 1.0.0
