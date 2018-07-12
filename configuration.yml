@@ -1,5 +1,5 @@
 version: 1
-type: maven
+type: gradle
 resolver:
   snapshotRepo: GRADLE_REPO_KEY
   releaseRepo: GRADLE_REPO_KEY
