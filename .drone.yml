@@ -1,11 +1,3 @@
-version: 1
-type: gradle
-resolver:
-  repo: GRADLE_REPO_KEY
-  serverID: Default-Server
-deployer:
-  repo: GRADLE_REPO_KEY
-  serverID: Default-Server
 pipeline:
   build:
     image: frekele/gradle
