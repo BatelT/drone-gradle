@@ -10,3 +10,4 @@ pipeline:
       - ./jfrog rt gradle "clean artifactoryPublish -b build.gradle" configuration.yml --build-name=Drone-Gradle-artifactory --build-number=1.0.0
       - ./jfrog rt bce Drone-Gradle-artifactory 1.0.0
       - ./jfrog rt bp Drone-Gradle-artifactory 1.0.0
+
