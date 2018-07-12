@@ -1,0 +1,13 @@
+pipeline:
+  build:
+    image: frekele/gradle
+    secrets: [ artifactory_password, ARTIFACTORY_USER, ARTIFACTORY_URL, GRADLE_REPO_KEY ]
+    commands:
+      - curl -fL https://getcli.jfrog.io | sh
+      - ./jfrog rt config --url=$ARTIFACTORY_URL --user=$ARTIFACTORY_USER --password=$ARTIFACTORY_PASSWORD
+      - ./jfrog rt c show
+      - export M2_HOME=/usr/share/maven
+      - sed -i 's,GRADLE_REPO_KEY,'"$GRADLE_REPO_KEY"',g' configuration.yaml
+      - ./jfrog rt gradle "clean artifactoryPublish -b build.gradle" configuration.yaml --build-name=Drone-Gradle-artifactory --build-number=1.0.0
+      - ./jfrog rt bce Drone-Gradle-artifactory 1.0.0
+      - ./jfrog rt bp Drone-Gradle-artifactory 1.0.0
