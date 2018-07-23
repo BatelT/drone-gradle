@@ -3,6 +3,7 @@ pipeline:
     image: frekele/gradle
     secrets: [ artifactory_password, ARTIFACTORY_USER, ARTIFACTORY_URL, GRADLE_REPO_KEY ]
     commands:
+       # Install the JFrog CLI
       - curl -fL https://getcli.jfrog.io | sh
       - ./jfrog rt config --url=$ARTIFACTORY_URL --user=$ARTIFACTORY_USER --password=$ARTIFACTORY_PASSWORD
       - ./jfrog rt c show
