@@ -15,3 +15,6 @@ pipeline:
       - ./jfrog rt bce Drone-Gradle-Demo 1.1.0
         # Publish the build with bp command
       - ./jfrog rt bp Drone-Gradle-Demo 1.1.0
+
+
+
